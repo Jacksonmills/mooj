@@ -1,7 +1,22 @@
 import React from 'react';
 
-export default function EntryCard({ entry }) {
+interface EntryCardProps {
+  entry: any;
+}
+
+export default function EntryCard({ entry }: EntryCardProps) {
+  const date = new Date(entry.createdAt).toDateString();
   return (
-    <div>{entry.id}</div>
+    <div className='divide-y divide-gray-200 overflow-hidden bg-white shadow'>
+      <div className='px-4 py-5 sm:px-6'>
+        {date}
+      </div>
+      <div className='px-4 py-5 sm:px-6'>
+        {'summary'}
+      </div>
+      <div className='px-4 py-5 sm:px-6'>
+        {'mood'}
+      </div>
+    </div>
   );
 }
