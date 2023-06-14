@@ -11,7 +11,9 @@ export type AnalysisCreateInput = {
   negative: boolean;
   color: string;
   emoji: string;
+  sentimentScore: number;
   entryId: string;
+  userId: string;
 };
 
 export const prisma = globalForPrisma.prisma ?? new PrismaClient({

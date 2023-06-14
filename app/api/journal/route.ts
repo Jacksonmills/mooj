@@ -19,6 +19,7 @@ export const POST = async () => {
   }
 
   const analysisEntry: AnalysisCreateInput = {
+    userId: user.id,
     entryId: entry.id,
     ...analysis
   };

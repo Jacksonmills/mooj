@@ -11,6 +11,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <Link href="/journal">
             Journal
           </Link>
+          <Link href="/history">
+            History
+          </Link>
         </div>
       </aside>
       <div className='ml-[200px] h-full'>

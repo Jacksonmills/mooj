@@ -17,7 +17,7 @@ export default function NewEntryCard() {
       onClick={handleOnClick}
     >
       <div className='px-6 py-3'>
-        <span className='text-xl'>New entry</span>
+        <span>New entry</span>
       </div>
     </button>
   );
