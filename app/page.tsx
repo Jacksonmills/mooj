@@ -1,5 +1,4 @@
-import Layout from "@/components/Layout";
-import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
+import Layout from "../components/Layout";
 import { auth } from "@clerk/nextjs";
 import Link from "next/link";
 
