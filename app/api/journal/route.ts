@@ -1,5 +1,6 @@
+import { analyze } from "@/utils/ai";
 import { getUserByClerkId } from "@/utils/auth";
-import { prisma } from "@/utils/db";
+import { prisma, AnalysisCreateInput } from "@/utils/db";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
@@ -8,8 +9,22 @@ export const POST = async () => {
   const entry = await prisma.journalEntry.create({
     data: {
       userId: user.id,
-      content: "Hello world!"
+      content: "Skateboarded to the park. Had a good time. But then I fell and scraped my knee."
     }
+  });
+
+  const analysis = await analyze(entry.content);
+  if (!analysis) {
+    throw new Error("Analysis failed.");
+  }
+
+  const analysisEntry: AnalysisCreateInput = {
+    entryId: entry.id,
+    ...analysis
+  };
+
+  await prisma.analysis.create({
+    data: analysisEntry
   });
 
   revalidatePath("/journal");

@@ -42,11 +42,13 @@ model Analysis {
 
   mood     String
   summary  String  @db.Text
+  subject  String
   color    String
   negative Boolean
+  emoji    String
 
   entryId String
-  entry   JournalEntry @relation(fields: [entryId], references: [id])
+  entry   JournalEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
 
   @@unique([entryId])
 }

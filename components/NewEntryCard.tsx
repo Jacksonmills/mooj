@@ -8,17 +8,17 @@ export default function NewEntryCard() {
 
   const handleOnClick = async () => {
     const data = await createNewEntry();
-    // router.push(`/journal/${data.id}`);
+    router.push(`/journal/${data.id}`);
   };
 
   return (
-    <div
-      className='cursor-pointer overflow-hidden rounded-lg bg-slate-500 shadow'
+    <button
+      className='cursor-pointer overflow-hidden rounded-lg bg-red-500 text-white font-bold shadow'
       onClick={handleOnClick}
     >
-      <div className='px-4 py-5 sm:p-6'>
-        <span className='text-3xl'>New entry</span>
+      <div className='px-6 py-3'>
+        <span className='text-xl'>New entry</span>
       </div>
-    </div>
+    </button>
   );
 }
